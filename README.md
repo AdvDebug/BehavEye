@@ -1,5 +1,5 @@
 # BehavEye
-<a href="#home"><img src="https://github.com/AdvDebug/BehavEye/blob/main/BehavEye.jpg?raw=true"></img></a>
+<a href="#home"><img src="https://github.com/AdvDebug/BehavEye/blob/main/BehavEye.png?raw=true"></img></a>
 <p align="center"><b>what is BehavEye?</b></p>
 BehavEye is an advanced malware analysis tool that monitors malware behavior and give a comprehensive log about everything that happened.
 
