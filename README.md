@@ -18,3 +18,8 @@ BehavEye is an advanced malware analysis tool that monitors malware behavior and
 * Monitor Driver Actions (monitoring driver/service creation, monitoring if the process tried to commuincate with a service/kernel driver, etc)
 
 * Misc Monitoring (monitoring if the process tried to crash the system, shutdown the system, etc)
+
+# License and discalimer
+This tool are for educational purposes only, ALL developers and contributors are not responsible for any kind of misuse.
+
+This Project is licensed under GNU General Public License v3.0.
