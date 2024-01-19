@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="icon" type="image/svg+xml" href="https://github.com/AdvDebug/BehavEye/raw/main/BehavEye.png?raw=true">
+      <title>BehavEye</title>
+   </head>
+   <body>
+      <div class="dark:bg-gray-900 dark:text-gray-200">
+         <div class="py-8 px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+               <div class="text-center">
+                  <img src="https://github.com/AdvDebug/BehavEye/blob/main/BehavEye.png?raw=true" alt="BehavEye Logo" class="mx-auto h-36 w-36" width="150" height="150" style="aspect-ratio: 150 / 150; object-fit: cover;">
+                  <h1 class="text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">BehavEye</h1>
+                  <p class="mt-4 text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                     An advanced malware analysis tool that monitors malware behavior and provides a comprehensive log about everything that happened.
+                  </p>
+               </div>
+               <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  <div class="flex flex-col items-center bg-gray-800 dark:bg-gray-700 p-4 rounded-lg">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-green-600">
+                        <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+                        <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+                        <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+                        <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
+                        <path d="M12 12V8"></path>
+                     </svg>
+                     <h3 class="mt-4 text-lg font-semibold text-gray-200">Monitoring Connections</h3>
+                     <p class="mt-2 text-sm text-gray-400 dark:text-gray-300">
+                        Tracks all network activity to detect suspicious connections.
+                     </p>
+                  </div>
+                  <div class="flex flex-col items-center bg-gray-800 dark:bg-gray-700 p-4 rounded-lg">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-green-600">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                     </svg>
+                     <h3 class="mt-4 text-lg font-semibold text-gray-200">Monitors File Actions</h3>
+                     <p class="mt-2 text-sm text-gray-400 dark:text-gray-300">
+                        Observes file creation and access to uncover stealthy operations.
+                     </p>
+                  </div>
+                  <div class="flex flex-col items-center bg-gray-800 dark:bg-gray-700 p-4 rounded-lg">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-green-600">
+                        <rect width="8" height="8" x="3" y="3" rx="2"></rect>
+                        <path d="M7 11v4a2 2 0 0 0 2 2h4"></path>
+                        <rect width="8" height="8" x="13" y="13" rx="2"></rect>
+                     </svg>
+                     <h3 class="mt-4 text-lg font-semibold text-gray-200">Monitors Process Actions</h3>
+                     <p class="mt-2 text-sm text-gray-400 dark:text-gray-300">
+                        Detailed surveillance of process behavior, including token impersonation, spoofing, and more.
+                     </p>
+                  </div>
+                  <div class="flex flex-col items-center bg-gray-800 dark:bg-gray-700 p-4 rounded-lg">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-green-600">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                        <path d="M3 12A9 3 0 0 0 21 12"></path>
+                     </svg>
+                     <h3 class="mt-4 text-lg font-semibold text-gray-200">Monitors Registry Actions</h3>
+                     <p class="mt-2 text-sm text-gray-400 dark:text-gray-300">
+                        Keeps an eye on registry modifications to detect persistence techniques.
+                     </p>
+                  </div>
+                  <div class="flex flex-col items-center bg-gray-800 dark:bg-gray-700 p-4 rounded-lg">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-green-600">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                     </svg>
+                     <h3 class="mt-4 text-lg font-semibold text-gray-200">Monitors the User API</h3>
+                     <p class="mt-2 text-sm text-gray-400 dark:text-gray-300">
+                        Analyzes user API interactions to prevent spying and data theft.
+                     </p>
+                  </div>
+                  <div class="flex flex-col items-center bg-gray-800 dark:bg-gray-700 p-4 rounded-lg">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-green-600">
+                        <path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"></path>
+                        <path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"></path>
+                        <circle cx="7" cy="18" r="2"></circle>
+                        <path d="M15 18H9"></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                     </svg>
+                     <h3 class="mt-4 text-lg font-semibold text-gray-200">Monitor Driver Actions</h3>
+                     <p class="mt-2 text-sm text-gray-400 dark:text-gray-300">
+                        Monitors driver and service activities to thwart kernel-level threats.
+                     </p>
+                  </div>
+                  <div class="flex flex-col items-center bg-gray-800 dark:bg-gray-700 p-4 rounded-lg">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-green-600">
+                        <path d="M3 7V5c0-1.1.9-2 2-2h2"></path>
+                        <path d="M17 3h2c1.1 0 2 .9 2 2v2"></path>
+                        <path d="M21 17v2c0 1.1-.9 2-2 2h-2"></path>
+                        <path d="M7 21H5c-1.1 0-2-.9-2-2v-2"></path>
+                        <rect width="7" height="5" x="7" y="7" rx="1"></rect>
+                        <rect width="7" height="5" x="10" y="12" rx="1"></rect>
+                     </svg>
+                     <h3 class="mt-4 text-lg font-semibold text-gray-200">Misc Monitoring</h3>
+                     <p class="mt-2 text-sm text-gray-400 dark:text-gray-300">
+                        Additional checks for attempts to disrupt system stability and security.
+                     </p>
+                  </div>
+               </div>
+               <div class="mt-12 text-center">
+                  <h2 class="text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100">Showcase</h2>
+                  <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <img src="https://media.discordapp.net/attachments/1124319275734270063/1197928529443168398/BehavEye.PNG?ex=65bd0ce1&is=65aa97e1&hm=a180f7b9ea649eed4edc3a17f59fdf20f93a6049f1e7d0714694f70489cddea9&=&format=webp&quality=lossless&width=816&height=473" alt="Showcase Image 1" class="rounded-lg" width="300" height="200" style="aspect-ratio: 300 / 200; object-fit: cover; object-fit: contain;">
+                    <img src="https://media.discordapp.net/attachments/1124319275734270063/1197928529740968067/BehavEye2.PNG?ex=65bd0ce1&is=65aa97e1&hm=1185cd23bc0921b44cead605ef974ad2ca1d0423703fded8b4fc1d1d110a713f&=&format=webp&quality=lossless&width=812&height=473" alt="Showcase Image 2" class="rounded-lg" width="300" height="200" style="aspect-ratio: 300 / 200; object-fit: cover; object-fit: contain;">
+                    <img src="https://media.discordapp.net/attachments/1124319275734270063/1197928529980031097/BehavEye3.PNG?ex=65bd0ce1&is=65aa97e1&hm=7f42ec20c2971f6fd6a96e7061d2df2e6419206df385431c507a4409a5b5e0ec&=&format=webp&quality=lossless&width=815&height=473" alt="Showcase Image 3" class="rounded-lg" width="300" height="200" style="aspect-ratio: 300 / 200; object-fit: cover; object-fit: contain;">
+                    <img src="https://media.discordapp.net/attachments/1124319275734270063/1197928530219114566/BehavEye4.PNG?ex=65bd0ce2&is=65aa97e2&hm=dee680f95fbf12907a9de9bfd020019459da2376025803dcd17c3e49be14c713&=&format=webp&quality=lossless&width=812&height=473" alt="Showcase Image 4" class="rounded-lg" width="300" height="200" style="aspect-ratio: 300 / 200; object-fit: cover; object-fit: contain;">
+                    <img src="https://media.discordapp.net/attachments/1124319275734270063/1197928530433028146/BehavEye5.PNG?ex=65bd0ce2&is=65aa97e2&hm=fed83df6c7ed8649f28aae08f0dbd6fb9c660da20cf7fd3c42b86cebb4e04646&=&format=webp&quality=lossless&width=823&height=473" alt="Showcase Image 5" class="rounded-lg" width="300" height="200" style="aspect-ratio: 300 / 200; object-fit: cover; object-fit: contain;">
+                    <img src="https://media.discordapp.net/attachments/1124319275734270063/1197931673074028544/BehavEye6.PNG?ex=65bd0fcf&is=65aa9acf&hm=e5aa841ac6151e212192ea21d0cf53b8569976ffb845851443a129ede04e0874&=&format=webp&quality=lossless&width=818&height=473" alt="Showcase Image 6" class="rounded-lg" width="300" height="200" style="aspect-ratio: 300 / 200; object-fit: cover; object-fit: contain;">
+                </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
