@@ -5,6 +5,9 @@
 #include <fcntl.h>
 #include <corecrt_io.h>
 #include <algorithm>
+#include <psapi.h>
+#include <Shlwapi.h>
+#pragma comment(lib, "shlwapi.lib")
 
 #define DEFAULT_COLOR FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE
 
@@ -55,14 +58,51 @@ bool Inject(HANDLE hProcess)
     return false;
 }
 
+bool SetCurrentDirectoryEx(HANDLE hProcess)
+{
+    char szFullPath[MAX_PATH + 1];
+    if (GetModuleFileNameExA(hProcess, NULL, szFullPath, MAX_PATH) > 0)
+    {
+        if (PathRemoveFileSpecA(szFullPath))
+        {
+            LPVOID Allocation = VirtualAllocEx(hProcess, NULL, strlen(szFullPath), MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+            LPVOID SetCurrentDir = GetProcAddress(GetModuleHandle(L"kernelbase.dll"), "SetCurrentDirectoryA");
+            if (Allocation != NULL)
+            {
+                if (WriteProcessMemory(hProcess, Allocation, szFullPath, strlen(szFullPath), NULL))
+                {
+                    HANDLE InjectionThread = CreateRemoteThread(hProcess, NULL, NULL, (LPTHREAD_START_ROUTINE)SetCurrentDir, Allocation, 0, NULL);
+                    WaitForSingleObject(InjectionThread, INFINITE);
+                    VirtualFreeEx(hProcess, Allocation, strlen(szFullPath), MEM_RELEASE);
+                    CloseHandle(InjectionThread);
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
 bool CreateAndInject(const char* Path)
 {
     STARTUPINFOA Si = { 0 };
     PROCESS_INFORMATION Pi = { 0 };
-    char Buffer[MAX_PATH + 1];
-    strcpy_s(Buffer, sizeof(Buffer), Path);
-    if (CreateProcessA(NULL, Buffer, NULL, NULL, FALSE, CREATE_SUSPENDED | CREATE_NEW_CONSOLE, NULL, NULL, &Si, &Pi))
+    std::string Contain(Path);
+    std::string FinalBuffer;
+    if (Contain.rfind(" ") == 0)
     {
+        std::string FinalBuffer;
+        FinalBuffer.append("\"");
+        FinalBuffer.append(Path);
+        FinalBuffer.append("\"");
+    }
+    else
+    {
+        FinalBuffer.append(Path);
+    }
+    if (CreateProcessA(NULL, (LPSTR)FinalBuffer.c_str(), NULL, NULL, FALSE, CREATE_SUSPENDED | CREATE_NEW_CONSOLE | CREATE_BREAKAWAY_FROM_JOB, NULL, NULL, &Si, &Pi))
+    {
+        SetCurrentDirectoryEx(Pi.hProcess);
         if (Inject(Pi.hProcess))
         {
             CloseHandle(Pi.hProcess);
@@ -262,11 +302,11 @@ int main(int argc, char** argv)
     {
         PrintLogo();
         PrintColored("Program Path: ", FOREGROUND_GREEN);
-        char Buffer[MAX_PATH + 1];
-        std::cin >> Buffer;
-        std::string Path(Buffer);
+        std::string Path;
+        std::cin.ignore(1);
+        std::getline(std::cin, Path);
         BOOL Save = SaveFile();
-        if (CreateAndInject(Buffer))
+        if (CreateAndInject(Path.c_str()))
         {
             ReadPipe(Save);
         }
